@@ -1,0 +1,4 @@
+import { Tabs } from "expo-router";import { Text,type ColorValue } from "react-native";import { colors } from "@/constants/pocket-theme";
+const icon=(glyph:string,color:ColorValue)=><Text style={{fontSize:18,color}}>{glyph}</Text>;
+export default function TabsLayout(){return <Tabs screenOptions={{headerShown:false,tabBarActiveTintColor:colors.brand,tabBarInactiveTintColor:colors.muted,tabBarStyle:{height:68,paddingBottom:9,paddingTop:7,backgroundColor:colors.panel,borderTopColor:colors.line}}}><Tabs.Screen name="index" options={{title:"Home",tabBarIcon:({color})=>icon("⌂",color)}}/><Tabs.Screen name="ledger" options={{title:"Ledger",tabBarIcon:({color})=>icon("₹",color)}}/><Tabs.Screen name="habits" options={{title:"Habits",tabBarIcon:({color})=>icon("✓",color)}}/><Tabs.Screen name="vehicle" options={{title:"Vehicle",tabBarIcon:({color})=>icon("◇",color)}}/><Tabs.Screen name="vault" options={{title:"Vault",tabBarIcon:({color})=>icon("▣",color)}}/></Tabs>}
+

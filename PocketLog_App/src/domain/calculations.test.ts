@@ -1,0 +1,4 @@
+import { calculateMileage,maskCard,retryDelaySeconds } from "./calculations";
+describe("vehicle mileage",()=>{it("waits for two full tanks",()=>expect(calculateMileage([{odometerKm:10,litres:1,fullTank:false}])).toBeNull());it("includes partial fills between full tanks",()=>expect(calculateMileage([{odometerKm:100,litres:4,fullTank:true},{odometerKm:160,litres:2,fullTank:false},{odometerKm:220,litres:2,fullTank:true}])).toEqual({distanceKm:120,litres:4,kmPerLitre:30,estimated:true}));it("rejects decreasing odometers",()=>expect(()=>calculateMileage([{odometerKm:200,litres:4,fullTank:true},{odometerKm:100,litres:4,fullTank:true}])).toThrow())});
+it("masks all but four card digits",()=>expect(maskCard("4111 1111 1111 1234")).toBe("•••• •••• •••• 1234"));it("bounds exponential retry",()=>expect(retryDelaySeconds(20)).toBe(3600));
+

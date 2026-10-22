@@ -1,0 +1,10 @@
+appId: com.pocketlog.app
+---
+- launchApp:
+    clearState: true
+- assertVisible: "Your life, in view."
+- assertVisible: "Quick actions"
+- tapOn: "Ledger"
+- assertVisible: "Smart ledger"
+- tapOn: "+ Add"
+- assertVisible: "Add transaction"
